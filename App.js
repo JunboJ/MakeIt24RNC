@@ -1,6 +1,10 @@
 import React from 'react';
-// import MainNavigator from './navigation/mainNavigator';
+import {applyMiddleware, compose, createStore} from 'redux';
+import {Provider} from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import {createRootReducer, rootSaga} from './store/reducer/rootReducer';
 import {NavigationContainer} from '@react-navigation/native';
+// import MainNavigator from './navigation/mainNavigator';
 import ButtonCustom from './components/buttonCustom/ButtonCustom';
 import {
   SafeAreaView,
@@ -9,10 +13,8 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {applyMiddleware, compose, createStore} from 'redux';
-import {Provider} from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import {createRootReducer, rootSaga} from './store/reducer/rootReducer';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { Icon } from 'react-native-elements';
 
 const initialStore = {};
 
@@ -27,17 +29,20 @@ sagaMiddleware.run(rootSaga);
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <SafeAreaProvider>
       <SafeAreaView>
-        <Provider store={store}>
-          {/* <MainNavigator /> */}
-          <ButtonCustom>
-            <Text>BUTTON</Text>
-          </ButtonCustom>
-          <Text style={styles.fsTest}>BUTTON</Text>
-        </Provider>
+        <NavigationContainer>
+          <Provider store={store}>
+            {/* <MainNavigator /> */}
+            <ButtonCustom>
+              <Text>BUTTON</Text>
+            </ButtonCustom>
+            <Text style={styles.fsTest}>ADD</Text>
+            <Icon name="smile" type="feather" size={30} color="#900" />
+          </Provider>
+        </NavigationContainer>
       </SafeAreaView>
-    </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
