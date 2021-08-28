@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { View, Animated, PanResponder } from "react-native";
+import React, { useRef } from 'react';
+import { View, Animated, PanResponder } from 'react-native';
 
 const SwipeCard = ({ children }) => {
   const pan = useRef(new Animated.Value(0)).current;
@@ -7,7 +7,7 @@ const SwipeCard = ({ children }) => {
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event([null, { dx: pan }], {
-          useNativeDriver: false
+        useNativeDriver: false,
       }),
       onPanResponderRelease: (event, gestureState) => {
         Animated.spring(pan, { toValue: 0, useNativeDriver: true }).start();

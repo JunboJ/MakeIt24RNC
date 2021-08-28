@@ -1,5 +1,5 @@
 export class GameScreenActions {
-  static SET_HISTORY_STEP = "SET_HISTORY_STEP";
+  static SET_HISTORY_STEP = 'SET_HISTORY_STEP';
   static SET_HISTORY_STEP_SUCCESS = 'SET_HISTORY_STEP_SUCCESS';
 
   static setHistoryStep(payload) {
@@ -11,10 +11,10 @@ export class GameScreenActions {
   }
 
   static setHistoryStepSuccess(payload) {
-      return {
-          error: false,
-          payload,
-          type: GameScreenActions.SET_HISTORY_STEP_SUCCESS
-      }
+    return {
+      error: false,
+      payload,
+      type: GameScreenActions.SET_HISTORY_STEP_SUCCESS,
+    };
   }
 }

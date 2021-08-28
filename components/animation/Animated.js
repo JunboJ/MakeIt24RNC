@@ -1,6 +1,6 @@
-import React from "react";
-import { useEffect } from "react";
-import { Animated, View, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { useEffect } from 'react';
+import { Animated, View, StyleSheet, Text } from 'react-native';
 
 const Ball = () => {
   const position = new Animated.ValueXY(0, 0);
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: 60,
     borderRadius: 30,
     borderWidth: 30,
-    borderColor: "black",
+    borderColor: 'black',
   },
 });
 

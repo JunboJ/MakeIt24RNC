@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { Card, Button } from "react-native-elements";
-import { ScrollView } from "react-native";
-import SwipeCard from "./SwipeCard";
+import React, { useRef } from 'react';
+import { Card, Button } from 'react-native-elements';
+import { ScrollView } from 'react-native';
+import SwipeCard from './SwipeCard';
 
 const Deck = ({ data }) => {
   const renderCards = () => {

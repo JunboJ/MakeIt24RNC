@@ -1,16 +1,16 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import GameStack from './GameStack';
 import UserScreen from '../../screens/User/userScreen';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 const Tab = createBottomTabNavigator();
 
 const MainTab = () => {
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({color}) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color }) => {
           let iconName;
 
           if (route.name === 'Home') {
@@ -21,22 +21,21 @@ const MainTab = () => {
             iconName = 'account-circle';
           }
 
-          return (
-            <Icon name={iconName} size={25} color={color} />
-          );
+          return <Icon name={iconName} size={25} color={color} />;
         },
         title: '',
         headerTransparent: true,
-      })}>
+      })}
+    >
       <Tab.Screen
         name="Home"
         component={GameStack}
-        options={{tabBarLabel: 'Play'}}
+        options={{ tabBarLabel: 'Play' }}
       />
       <Tab.Screen
         name="User"
         component={UserScreen}
-        options={{tabBarLabel: 'My Profile'}}
+        options={{ tabBarLabel: 'My Profile' }}
       />
     </Tab.Navigator>
   );

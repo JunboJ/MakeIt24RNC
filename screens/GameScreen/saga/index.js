@@ -3,7 +3,10 @@ import { GameScreenActions } from '../actions';
 
 export class GameScreenSagas {
   static GAME_SCREEN_SAGA_FORK = [
-    takeLatest(GameScreenActions.SET_HISTORY_STEP, GameScreenSagas.setHistoryStepAPICall),
+    takeLatest(
+      GameScreenActions.SET_HISTORY_STEP,
+      GameScreenSagas.setHistoryStepAPICall
+    ),
   ];
 
   static *setHistoryStepAPICall(action) {
@@ -12,7 +15,7 @@ export class GameScreenSagas {
     try {
       const response = yield call(() => {
         // make api call here
-        return 'test'
+        return 'test';
       }, param);
 
       if (response) {

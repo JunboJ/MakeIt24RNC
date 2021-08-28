@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    cardWrapper: {
-        flexDirection: "row",
-    },
+  cardWrapper: {
+    flexDirection: 'row',
+  },
 });
 
 export default styles;

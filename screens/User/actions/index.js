@@ -34,7 +34,7 @@ export class UserScreenActions {
       error: payload.error,
       payload,
       type: UserScreenActions.SIGNUP_SUCCESS,
-    }
+    };
   }
 
   static signUpFailed(payload) {
@@ -42,6 +42,6 @@ export class UserScreenActions {
       error: payload.error,
       payload,
       type: UserScreenActions.SIGNUP_FAILED,
-    }
+    };
   }
 }

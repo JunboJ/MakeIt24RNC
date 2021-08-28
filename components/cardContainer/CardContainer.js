@@ -1,9 +1,9 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import Card from "../card/Card";
-import constants from "../../constants/constants";
-import RecursiveCard from "../recursiveCard/recursiveCard";
-import styles from "./styles/styles";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import Card from '../card/Card';
+import constants from '../../constants/constants';
+import RecursiveCard from '../recursiveCard/recursiveCard';
+import styles from './styles/styles';
 
 const CardContainer = ({ items, onPressHandler, activeItem, name }) => {
   return (
@@ -15,7 +15,11 @@ const CardContainer = ({ items, onPressHandler, activeItem, name }) => {
             key={`${type}-${index}`}
             object={val}
             onPressHandler={onPressHandler}
-            active={name === 'operands' ? Object.values(activeItem).includes(val) : activeItem.type === val.type}
+            active={
+              name === 'operands'
+                ? Object.values(activeItem).includes(val)
+                : activeItem.type === val.type
+            }
           />
         ) : (
           <Card key={`init-${index}`} type={constants.numberTypes.INITIAL} />

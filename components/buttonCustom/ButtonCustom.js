@@ -19,7 +19,7 @@ const ButtonCustom = ({
 
   const defaultOnPressHandler = () => {
     console.warn('No Handler Defined');
-  }
+  };
 
   const touchableProps = {
     activeOpacity: 1,
@@ -67,7 +67,6 @@ const ButtonCustom = ({
       </View>
     );
   }
-
   return (
     <View
       style={

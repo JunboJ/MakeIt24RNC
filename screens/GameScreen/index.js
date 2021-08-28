@@ -1,38 +1,38 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {View, StyleSheet} from 'react-native';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, StyleSheet } from 'react-native';
 
 import CardContainer from '../../components/cardContainer/CardContainer';
 import constants from '../../constants/constants';
 import ButtonCustom from '../../components/buttonCustom/ButtonCustom';
-import {ResultNumber} from '../../core/resultNumber/ResultNumber';
-import {Calculation} from '../../core/calculation/Calculation';
-import {Core} from '../../core/Core';
-import {useSelector} from 'react-redux';
+import { ResultNumber } from '../../core/resultNumber/ResultNumber';
+import { Calculation } from '../../core/calculation/Calculation';
+import { Core } from '../../core/Core';
+import { useSelector } from 'react-redux';
 import GameHeader from '../../navigation/headers/Game';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import StrikeCounter from '../../components/strikeCounter/strikeCounter';
-import {NumberList} from '../../core/numberList/NumberList';
-import {operatorRender} from '../../helpers/helpers';
+import { NumberList } from '../../core/numberList/NumberList';
+import { operatorRender } from '../../helpers/helpers';
 
-const operators = [{type: '+'}, {type: '-'}, {type: '*'}, {type: '/'}];
+const operators = [{ type: '+' }, { type: '-' }, { type: '*' }, { type: '/' }];
 const listObj = new NumberList();
 
-const GameScreen = ({navigation}) => {
-  const [list, setList] = useState(listObj.generateList([12, 6, 4, 9]));
+const GameScreen = ({ navigation }) => {
+  const [list, setList] = useState(listObj.generateList([2, 3, 3, 3]));
   // const [list, setList] = useState(listObj.generateList([4, 10, 1, 1]));
   // const [list, setList] = useState(listObj.generateRandomList());
   const [isInitState, setIsInitState] = useState(true);
-  const [operands, setOperands] = useState({a: null, b: null});
-  const [operator, setOperator] = useState({type: null});
+  const [operands, setOperands] = useState({ a: null, b: null });
+  const [operator, setOperator] = useState({ type: null });
   const [inputStack, setInputStack] = useState();
   const [strikes, setStrikes] = useState(0);
   const [stepOut, setStepOut] = useState(false);
   const [resolutions, setResolutions] = useState([]);
 
-  const gameHistory = useSelector(state => state.game);
+  const gameHistory = useSelector((state) => state.game);
 
-  const numberOnPressHandler = numObject => {
+  const numberOnPressHandler = (numObject) => {
     if (operands.a === numObject) {
       return setOperands({
         a: null,
@@ -65,9 +65,9 @@ const GameScreen = ({navigation}) => {
     }
   };
 
-  const operatorOnPressHandler = operatorObj => {
+  const operatorOnPressHandler = (operatorObj) => {
     if (operatorObj === operator) {
-      return setOperator({type: null});
+      return setOperator({ type: null });
     }
     return setOperator(operatorObj);
   };
@@ -97,8 +97,8 @@ const GameScreen = ({navigation}) => {
   };
 
   const resetActive = () => {
-    setOperands({a: null, b: null});
-    setOperator({type: null});
+    setOperands({ a: null, b: null });
+    setOperator({ type: null });
   };
 
   const submitHandler = () => {
@@ -137,7 +137,7 @@ const GameScreen = ({navigation}) => {
       operator.type !== null &&
       !isInitState
     ) {
-      const rest = list.filter(val => {
+      const rest = list.filter((val) => {
         return val !== operands.a && val !== operands.b;
       });
 
@@ -153,7 +153,7 @@ const GameScreen = ({navigation}) => {
 
       const newNumber = new ResultNumber(operands.a, operands.b, operator.type);
 
-      console.log(inputStack, newNumber, rest)
+      console.log(inputStack, newNumber, rest);
 
       setInputStack([...inputStack, [newNumber, ...rest]]);
       setList([newNumber, ...rest]);
@@ -173,7 +173,7 @@ const GameScreen = ({navigation}) => {
   // auto start a new game
   useEffect(() => {
     if (isInitState) {
-      setInputStack([list])
+      setInputStack([list]);
 
       setIsInitState(false);
     }
@@ -214,7 +214,8 @@ const GameScreen = ({navigation}) => {
         <ButtonCustom
           colorTheme="blue"
           size="small"
-          onPressHandler={prevStepHandler}>
+          onPressHandler={prevStepHandler}
+        >
           <Icon
             name="restore"
             size={18}
@@ -225,7 +226,8 @@ const GameScreen = ({navigation}) => {
           colorTheme="yellow"
           size="small"
           onPressHandler={submitHandler}
-          disabled={stepOut ? false : true}>
+          disabled={stepOut ? false : true}
+        >
           <Icon
             name="check"
             size={18}
@@ -248,7 +250,8 @@ const GameScreen = ({navigation}) => {
         <ButtonCustom
           onPressHandler={getSolutionsHandler}
           size="small"
-          colorTheme="lightWarning">
+          colorTheme="lightWarning"
+        >
           <Icon
             name="lightbulb"
             size={18}

@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet, Text } from "react-native";
-import Card from "../card/Card";
-import constants from "../../constants/constants";
-import { TouchableOpacity } from "react-native";
-import { operatorRender } from "../../helpers/helpers";
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
+import Card from '../card/Card';
+import constants from '../../constants/constants';
+import { TouchableOpacity } from 'react-native';
+import { operatorRender } from '../../helpers/helpers';
 
 const RecursiveCard = ({
   object,
@@ -14,9 +14,9 @@ const RecursiveCard = ({
   const showReverse = false;
 
   const recursiveOperandRender = ({ operands, operator, result }) => {
-    console.log("result", result);
+    console.log('result', result);
     let content = [];
-    if (!showReverse && operator.charAt(0) === "r") {
+    if (!showReverse && operator.charAt(0) === 'r') {
       operands = operands.reverse();
       operator = operator.slice(-1);
     }
@@ -39,7 +39,7 @@ const RecursiveCard = ({
           if (operandType === constants.numberTypes.ORIGIN) {
             content.push(
               <Text key={`originNumber-${Math.random(3) * 1000}`}>{`${
-                index === 1 ? renderOperator : ""
+                index === 1 ? renderOperator : ''
               }${operand.number}`}</Text>
             );
           }
@@ -58,7 +58,7 @@ const RecursiveCard = ({
     // render a single operator
     if (Object.values(constants.operatorTypes).includes(itemType)) {
       return (
-        <Card type={"operator"} style={styles.operatorCard}>
+        <Card type={'operator'} style={styles.operatorCard}>
           {operatorRender(itemType)}
         </Card>
       );
@@ -100,7 +100,7 @@ const RecursiveCard = ({
 const styles = StyleSheet.create({
   recursiveCard: {
     height: 75,
-    width: "auto",
+    width: 'auto',
     minWidth: 55,
     margin: 10,
   },

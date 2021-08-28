@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
-import constants from "../../../constants/constants";
+import { StyleSheet } from 'react-native';
+import constants from '../../../constants/constants';
 
 const btnStyle = (colorTheme, size) => {
   const rnSet3 = constants.colorPalette.rnSet3;
 
   const buttonThemes = (colorTheme) => {
     switch (colorTheme) {
-      case "yellow":
+      case 'yellow':
         return {
           mainColor: {
             borderColor: rnSet3.darkYellow,
@@ -17,7 +17,7 @@ const btnStyle = (colorTheme, size) => {
           },
           underlayTheme: rnSet3.yellow,
         };
-      case "red":
+      case 'red':
         return {
           mainColor: {
             borderColor: rnSet3.red,
@@ -28,7 +28,7 @@ const btnStyle = (colorTheme, size) => {
           },
           underlayTheme: rnSet3.lightRed,
         };
-      case "lightWarning":
+      case 'lightWarning':
         return {
           mainColor: {
             borderColor: rnSet3.red,
@@ -56,11 +56,11 @@ const btnStyle = (colorTheme, size) => {
 
   const getDimension = (size) => {
     switch (size) {
-      case "small":
+      case 'small':
         return { heightY: 40, heightZ: 4, font: 18 };
-      case "medium":
+      case 'medium':
         return { heightY: 50, heightZ: 5, font: 20 };
-      case "large":
+      case 'large':
         return { heightY: 100, heightZ: 10, font: 22 };
       default:
         return { heightY: 50, heightZ: 5, font: 20 };
@@ -87,8 +87,8 @@ const btnStyle = (colorTheme, size) => {
     borderRadius: 5,
     borderWidth: 1,
     minWidth: 50,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   const buttonNormal = {
@@ -129,7 +129,7 @@ const btnStyle = (colorTheme, size) => {
     styles: StyleSheet.create({
       textStyle: {
         color: rnSet3.white,
-        fontFamily: "SegoeUI-Bold",
+        fontFamily: 'SegoeUI-Bold',
         fontSize: font,
       },
       buttonNotPressed: buttonNotPressed,

@@ -1,12 +1,12 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, { useState, useCallback, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import ButtonCustom from '../components/buttonCustom/ButtonCustom';
 import constants from '../constants/constants';
 
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 // import Ball from '../components/animation/Animated';
 
-const MainMenuScreen = ({navigation}) => {
+const MainMenuScreen = ({ navigation }) => {
   const startGameHandler = () => {
     navigation.navigate('Game');
   };
@@ -22,7 +22,8 @@ const MainMenuScreen = ({navigation}) => {
           onPressHandler={startGameHandler}
           size="large"
           title="PLAY"
-          style={{width: 200, borderRadius: 10}}>
+          style={{ width: 200, borderRadius: 10 }}
+        >
           {/* <Icon
             name="play"
             size={40}
@@ -31,7 +32,7 @@ const MainMenuScreen = ({navigation}) => {
           /> */}
         </ButtonCustom>
       </View>
-      <View style={{marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
         <ButtonCustom
           size="medium"
           title="Sign In"
