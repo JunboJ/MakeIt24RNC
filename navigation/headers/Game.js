@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import ButtonCustom from '../../components/buttonCustom/ButtonCustom';
 import constants from '../../constants/constants';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import { Icon } from 'react-native-elements';
 
 const GameHeader = ({navigation}) => {
   return (
@@ -13,7 +13,7 @@ const GameHeader = ({navigation}) => {
         onPressHandler={() => {
           navigation.goBack();
         }}>
-        <Icon name="home" size={18} color={constants.colorPalette.rnSet3.red} />
+        <Icon name="chevron-left" size={25} color={constants.colorPalette.rnSet3.red} />
       </ButtonCustom>
     </View>
   );

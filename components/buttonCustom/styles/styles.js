@@ -129,7 +129,7 @@ const btnStyle = (colorTheme, size) => {
     styles: StyleSheet.create({
       textStyle: {
         color: rnSet3.white,
-        fontFamily: "Segoe-UI-Bold",
+        fontFamily: "SegoeUI-Bold",
         fontSize: font,
       },
       buttonNotPressed: buttonNotPressed,

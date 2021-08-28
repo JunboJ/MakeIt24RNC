@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {View, StyleSheet} from 'react-native';
+
 import CardContainer from '../../components/cardContainer/CardContainer';
 import constants from '../../constants/constants';
 import ButtonCustom from '../../components/buttonCustom/ButtonCustom';
-import { ResultNumber } from '../../core/resultNumber/ResultNumber';
-import { Calculation } from '../../core/calculation/Calculation';
-import { Core } from '../../core/Core';
-import { useSelector } from 'react-redux';
-
-
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import {ResultNumber} from '../../core/resultNumber/ResultNumber';
+import {Calculation} from '../../core/calculation/Calculation';
+import {Core} from '../../core/Core';
+import {useSelector} from 'react-redux';
+import GameHeader from '../../navigation/headers/Game';
+import {Icon} from 'react-native-elements';
 import StrikeCounter from '../../components/strikeCounter/strikeCounter';
-import { NumberList } from '../../core/numberList/NumberList';
-import { operatorRender } from '../../helpers/helpers';
+import {NumberList} from '../../core/numberList/NumberList';
+import {operatorRender} from '../../helpers/helpers';
 
-const operators = [{ type: '+' }, { type: '-' }, { type: '*' }, { type: '/' }];
+const operators = [{type: '+'}, {type: '-'}, {type: '*'}, {type: '/'}];
 const listObj = new NumberList();
 
-const GameScreen = () => {
-  const [list, setList] = useState(listObj.generateList([4, 10, 1, 1]));
+const GameScreen = ({navigation}) => {
+  const [list, setList] = useState(listObj.generateList([12, 6, 4, 9]));
+  // const [list, setList] = useState(listObj.generateList([4, 10, 1, 1]));
+  // const [list, setList] = useState(listObj.generateRandomList());
   const [isInitState, setIsInitState] = useState(true);
-  const [operands, setOperands] = useState({ a: null, b: null });
-  const [operator, setOperator] = useState({ type: null });
+  const [operands, setOperands] = useState({a: null, b: null});
+  const [operator, setOperator] = useState({type: null});
   const [inputStack, setInputStack] = useState();
   const [strikes, setStrikes] = useState(0);
   const [stepOut, setStepOut] = useState(false);
   const [resolutions, setResolutions] = useState([]);
 
-  const gameHistory = useSelector((state) => state.game);
+  const gameHistory = useSelector(state => state.game);
 
-  const times = '\u00d7';
-
-  const numberOnPressHandler = (numObject) => {
+  const numberOnPressHandler = numObject => {
     if (operands.a === numObject) {
       return setOperands({
         a: null,
@@ -64,9 +65,9 @@ const GameScreen = () => {
     }
   };
 
-  const operatorOnPressHandler = (operatorObj) => {
+  const operatorOnPressHandler = operatorObj => {
     if (operatorObj === operator) {
-      return setOperator({ type: null });
+      return setOperator({type: null});
     }
     return setOperator(operatorObj);
   };
@@ -96,8 +97,8 @@ const GameScreen = () => {
   };
 
   const resetActive = () => {
-    setOperands({ a: null, b: null });
-    setOperator({ type: null });
+    setOperands({a: null, b: null});
+    setOperator({type: null});
   };
 
   const submitHandler = () => {
@@ -115,11 +116,19 @@ const GameScreen = () => {
     const dp = Core.getSolutions(list, false);
     const ndp = Core.getSolutions(list);
 
-    console.log('non duplicate solutions', ndp);
+    console.log('duplicate included solutions', dp.length, dp);
+    console.log('non duplicate solutions', ndp.length, ndp);
 
     const newSolutions = [...ndp];
     setResolutions(newSolutions);
   };
+
+  useLayoutEffect(() => {
+    console.log('navigation', navigation);
+    navigation.setOptions({
+      headerLeft: () => <GameHeader navigation={navigation} />,
+    });
+  }, [navigation]);
 
   useEffect(() => {
     if (
@@ -128,7 +137,7 @@ const GameScreen = () => {
       operator.type !== null &&
       !isInitState
     ) {
-      const rest = list.filter((val) => {
+      const rest = list.filter(val => {
         return val !== operands.a && val !== operands.b;
       });
 
@@ -143,6 +152,8 @@ const GameScreen = () => {
       }
 
       const newNumber = new ResultNumber(operands.a, operands.b, operator.type);
+
+      console.log(inputStack, newNumber, rest)
 
       setInputStack([...inputStack, [newNumber, ...rest]]);
       setList([newNumber, ...rest]);
@@ -162,14 +173,16 @@ const GameScreen = () => {
   // auto start a new game
   useEffect(() => {
     if (isInitState) {
+      setInputStack([list])
+
       setIsInitState(false);
     }
   }, [isInitState]);
 
   useEffect(() => {
     if (resolutions.length) {
-      console.log('log the resolutions', resolutions);
-      console.log('log the resolutions length', resolutions.length);
+      // console.log('log the resolutions', resolutions);
+      // console.log('log the resolutions length', resolutions.length);
     }
   }, [resolutions]);
 
@@ -186,7 +199,7 @@ const GameScreen = () => {
   });
 
   return (
-    <View style={styles.gameScreen}>
+    <SafeAreaView style={styles.gameScreen}>
       <StrikeCounter strikes={strikes} />
       <View style={styles.cardWrapper}>
         <CardContainer
@@ -201,10 +214,9 @@ const GameScreen = () => {
         <ButtonCustom
           colorTheme="blue"
           size="small"
-          onPressHandler={prevStepHandler}
-        >
+          onPressHandler={prevStepHandler}>
           <Icon
-            name="backward"
+            name="restore"
             size={18}
             color={constants.colorPalette.rnSet3.darkBlue}
           />
@@ -213,8 +225,7 @@ const GameScreen = () => {
           colorTheme="yellow"
           size="small"
           onPressHandler={submitHandler}
-          disabled={stepOut ? false : true}
-        >
+          disabled={stepOut ? false : true}>
           <Icon
             name="check"
             size={18}
@@ -229,7 +240,7 @@ const GameScreen = () => {
       <View style={styles.answerStyle}>
         <ButtonCustom onPressHandler={generateHandler} size="small">
           <Icon
-            name="dice"
+            name="casino"
             size={18}
             color={constants.colorPalette.rnSet3.white}
           />
@@ -237,16 +248,15 @@ const GameScreen = () => {
         <ButtonCustom
           onPressHandler={getSolutionsHandler}
           size="small"
-          colorTheme="lightWarning"
-        >
+          colorTheme="lightWarning">
           <Icon
-            name="bulb"
+            name="lightbulb"
             size={18}
             color={constants.colorPalette.rnSet3.red}
           />
         </ButtonCustom>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

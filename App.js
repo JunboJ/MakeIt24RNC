@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import {createRootReducer, rootSaga} from './store/reducer/rootReducer';
 import {NavigationContainer} from '@react-navigation/native';
-// import MainNavigator from './navigation/mainNavigator';
+import MainNavigator from './navigation/mainNavigator';
 import ButtonCustom from './components/buttonCustom/ButtonCustom';
 import {
   SafeAreaView,
@@ -14,7 +14,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import { Icon } from 'react-native-elements';
+import MainMenuScreen from './screens/MainMenuScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import GameStack from './navigation/navigators/GameStack';
 
 const initialStore = {};
 
@@ -26,22 +28,22 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
+const Stack = createStackNavigator();
 
 const App = () => {
+  const rootOptions = {
+    title: 'Test',
+  };
+
+  const homeOptions = {
+    title: '',
+  };
+
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
-        <NavigationContainer>
-          <Provider store={store}>
-            {/* <MainNavigator /> */}
-            <ButtonCustom>
-              <Text>BUTTON</Text>
-            </ButtonCustom>
-            <Text style={styles.fsTest}>ADD</Text>
-            <Icon name="smile" type="feather" size={30} color="#900" />
-          </Provider>
-        </NavigationContainer>
-      </SafeAreaView>
+      <Provider store={store}>
+        <MainNavigator />
+      </Provider>
     </SafeAreaProvider>
   );
 };

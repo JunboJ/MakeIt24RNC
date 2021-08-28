@@ -10,7 +10,7 @@ const CardText = ({ style, children }) => {
 
 const styles = StyleSheet.create({
     textStyle: {
-        fontFamily: 'Segoe-UI-Bold',
+        fontFamily: 'SegoeUI-Bold',
         fontSize: 18,
         color: constants.colorPalette.rnSet3.darkBlue
     }

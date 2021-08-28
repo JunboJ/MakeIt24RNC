@@ -44,6 +44,10 @@
 		D6E25613774B4E3B964FBC71 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2583CF9A53C448EACF903E1 /* Feather.ttf */; };
 		ED35128E30BE4E84A1AAD47D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 706BDFCD19D143238289AF0F /* SimpleLineIcons.ttf */; };
 		F92F82801F0E4045B3C2D7A4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3DB8A76374143BF943ACF /* Octicons.ttf */; };
+		68E65FD186D14D329842562F /* Segoe-UI-Bold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DAFF22FBBD4410BD9D730A /* Segoe-UI-Bold-Italic.ttf */; };
+		140A88396521417DBD85D3C1 /* Segoe-UI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6080E9329C2A40E2B6D2BEF1 /* Segoe-UI-Bold.ttf */; };
+		5264A89D382E47098ED24998 /* Segoe-UI-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DE31018093246B3B3F72E7A /* Segoe-UI-Italic.ttf */; };
+		DFB279BE5A324953B04BF400 /* Segoe-UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D290C0C110349B3A064D8CE /* Segoe-UI.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA1CCECD97672255E348FF63 /* libPods-MakeIt24RNC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MakeIt24RNC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBBF5A2B981F0D88EAE2A06 /* Pods-MakeIt24RNC-MakeIt24RNCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeIt24RNC-MakeIt24RNCTests.debug.xcconfig"; path = "Target Support Files/Pods-MakeIt24RNC-MakeIt24RNCTests/Pods-MakeIt24RNC-MakeIt24RNCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7DAFF22FBBD4410BD9D730A /* Segoe-UI-Bold-Italic.ttf */ = {isa = PBXFileReference; name = "Segoe-UI-Bold-Italic.ttf"; path = "../assets/fonts/Segoe-UI-Bold-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6080E9329C2A40E2B6D2BEF1 /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; name = "Segoe-UI-Bold.ttf"; path = "../assets/fonts/Segoe-UI-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5DE31018093246B3B3F72E7A /* Segoe-UI-Italic.ttf */ = {isa = PBXFileReference; name = "Segoe-UI-Italic.ttf"; path = "../assets/fonts/Segoe-UI-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7D290C0C110349B3A064D8CE /* Segoe-UI.ttf */ = {isa = PBXFileReference; name = "Segoe-UI.ttf"; path = "../assets/fonts/Segoe-UI.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +222,10 @@
 				2CC3DB8A76374143BF943ACF /* Octicons.ttf */,
 				706BDFCD19D143238289AF0F /* SimpleLineIcons.ttf */,
 				867444E3BCED41BC98493190 /* Zocial.ttf */,
+				D7DAFF22FBBD4410BD9D730A /* Segoe-UI-Bold-Italic.ttf */,
+				6080E9329C2A40E2B6D2BEF1 /* Segoe-UI-Bold.ttf */,
+				5DE31018093246B3B3F72E7A /* Segoe-UI-Italic.ttf */,
+				7D290C0C110349B3A064D8CE /* Segoe-UI.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -344,6 +356,10 @@
 				1A84225A26D8C216002B7407 /* Octicons.ttf in Resources */,
 				1A84225B26D8C216002B7407 /* SimpleLineIcons.ttf in Resources */,
 				1A84225C26D8C216002B7407 /* Zocial.ttf in Resources */,
+				68E65FD186D14D329842562F /* Segoe-UI-Bold-Italic.ttf in Resources */,
+				140A88396521417DBD85D3C1 /* Segoe-UI-Bold.ttf in Resources */,
+				5264A89D382E47098ED24998 /* Segoe-UI-Italic.ttf in Resources */,
+				DFB279BE5A324953B04BF400 /* Segoe-UI.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

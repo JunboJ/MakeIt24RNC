@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import { Icon } from 'react-native-elements';
 import ButtonCustom from '../../components/buttonCustom/ButtonCustom';
 import constants from '../../constants/constants';
 import { Input } from 'react-native-elements';
@@ -34,7 +34,6 @@ const UserScreen = () => {
       password: passwordState,
     });
 
-    console.log('action', action);
     dispatch(action);
   }, [dispatch, emailState, passwordState]);
 
@@ -43,7 +42,7 @@ const UserScreen = () => {
       <View style={styles.userScreen}>
         <View>
           <Icon
-            name="user-ninja"
+            name="face"
             size={80}
             color={constants.colorPalette.rnDisabled.darkGray}
             style={styles.userIcon}
@@ -53,7 +52,7 @@ const UserScreen = () => {
           <Input
             placeholder="Enter your email"
             label="Email Address"
-            leftIcon={<Icon name="envelope" color="grey" size={16} />}
+            leftIcon={<Icon name="mail-outline" color="grey" size={16} />}
             autoCapitalize="none"
             onChangeText={onEmailInputHandler}
             errorMessage={
@@ -65,7 +64,7 @@ const UserScreen = () => {
           <Input
             placeholder="Enter your password"
             label="Enter Password"
-            leftIcon={<Icon name="key" color="grey" size={16} />}
+            leftIcon={<Icon name="vpn-key" color="grey" size={16} />}
             secureTextEntry={true}
             autoCapitalize="none"
             onChangeText={onPasswordInputHandler}
